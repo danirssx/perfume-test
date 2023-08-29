@@ -1,6 +1,6 @@
 import pandas as pd
 import numpy as np
-import bs4 as BeautifulSoup
+from bs4 import BeautifulSoup
 import requests
 import time
 
@@ -30,7 +30,9 @@ class Script:
         session = requests.Session()
         response = session.get(url, headers=headers)
 
-        # Transforming it into soup
+        print('Response:', response.status_code)
+
+        # Transforming it into sosup
         soup = BeautifulSoup(response.content, 'html.parser')
 
         # Transforming the image
@@ -44,13 +46,15 @@ class Script:
 
         list_panda = [img_src, p_text]
 
-        print(list_panda)
-
-        return soup
+        return list_panda
 
 # Return prop
 
+# TESTING
 
-data = Script()
-data.scrap_tool(
-    'https://www.fragrantica.es/perfume/Victoria-s-Secret/Victoria-s-Secret-Pink-Warm-Cozy-20400.html')
+# data = Script()
+# scrap = data.scrap_tool(
+#     'https://www.fragrantica.es/perfume/Victoria-s-Secret/Victoria-s-Secret-Pink-Warm-Cozy-20400.html')
+
+
+# print(scrap)
