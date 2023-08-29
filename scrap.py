@@ -16,7 +16,7 @@ class Script:
 
     # Tool to scrape the website
     def scrap_tool(self, url):
-        delay_seconds = 2
+        delay_seconds = 3
         time.sleep(delay_seconds)
 
         # Where I'm accessing to the data
