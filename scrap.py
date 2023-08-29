@@ -44,7 +44,16 @@ class Script:
         paragraph = text.find('p', attrs={})
         p_text = paragraph.get_text()
 
-        list_panda = [img_src, p_text]
+        # Acordes principales
+        acord = soup.find_all('div', attrs={"class": 'accord-bar'})[0:3]
+        # list acord
+        list_acord = []
+
+        for i in range(len(acord)):
+            acord[i] = acord[i].get_text()
+            list_acord.append(acord[i])
+
+        list_panda = [img_src, p_text, list_acord]
 
         return list_panda
 
