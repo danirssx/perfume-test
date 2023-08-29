@@ -9,7 +9,7 @@ class Script:
 
     # Link to scrap main excel data
     def link_excel(self, link):
-        df = pd.DataFrame(columns='Perfumes')
+        df = pd.DataFrame(columns=['Perfumes'])
         df['Perfumes'] = pd.read_excel(link)
 
         return df
