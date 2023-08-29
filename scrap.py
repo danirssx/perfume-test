@@ -33,4 +33,24 @@ class Script:
         # Transforming it into soup
         soup = BeautifulSoup(response.content, 'html.parser')
 
+        # Transforming the image
+        image = soup.find('img', attrs={"width": "375"})
+        img_src = image['src']
+
+        # Transforming text
+        text = soup.find('div', attrs={'itemprop': 'description'})
+        paragraph = text.find('p', attrs={})
+        p_text = paragraph.get_text()
+
+        list_panda = [img_src, p_text]
+
+        print(list_panda)
+
         return soup
+
+# Return prop
+
+
+data = Script()
+data.scrap_tool(
+    'https://www.fragrantica.es/perfume/Victoria-s-Secret/Victoria-s-Secret-Pink-Warm-Cozy-20400.html')
